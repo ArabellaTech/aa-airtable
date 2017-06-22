@@ -13,33 +13,31 @@ class ParserTests(TestCase):
         data = {
             "foo": {
                 "Media": [{
-                        "id": "m1",
-                        "fields": {
-                            "Name": "M1",
-                            "NY Logo": [{
-                                "url": "http://example.com/logo.png",
-                                "id": "logo",
-                                "filename": "logo.png",
-                                "type": "image/jpeg",
-                            }],
-                        }
-                    }, {
-                        "id": "m2",
-                        "fields": {
-                            "Name": "M2",
-                        },
-                    },
-                ],
-                "Article": [{
-                        "id": "a1",
-                        "fields": {
-                            "Name": "A1",
-                            "Title": "at1",
-                            "Description": "Lorem Ipsum",
-                            "Gallery": ["m1", "m2"],
-                        }
+                    "id": "m1",
+                    "fields": {
+                        "Name": "M1",
+                        "NY Logo": [{
+                            "url": "http://example.com/logo.png",
+                            "id": "logo",
+                            "filename": "logo.png",
+                            "type": "image/jpeg",
+                        }],
                     }
-                ]
+                }, {
+                    "id": "m2",
+                    "fields": {
+                        "Name": "M2",
+                    },
+                }],
+                "Article": [{
+                    "id": "a1",
+                    "fields": {
+                        "Name": "A1",
+                        "Title": "at1",
+                        "Description": "Lorem Ipsum",
+                        "Gallery": ["m1", "m2"],
+                    }
+                }]
             }
         }
         DatabasesParser(data)

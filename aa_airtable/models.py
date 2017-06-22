@@ -30,7 +30,7 @@ class Job(models.Model):
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=STATUS_PENDING, db_index=True)
     error = models.TextField()
     file = models.FileField(upload_to=airtable_settings.DATA_DIRECTORY)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["-created", "-id"]
