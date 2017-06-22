@@ -34,20 +34,13 @@ def process_job_task(job_id):
             release_lock()
             raise
 
-        print("x3")
-
         job.status = Job.STATUS_STARTED
         job.save()
-        print("x4")
         try:
             file_path, data = get()
-            print("x5")
             job.file = file_path
-            print("6")
             job.save()
-            print(1)
             DatabasesParser(data)
-            print(2)
             job.status = Job.STATUS_SUCCESS
             job.save()
             release_lock()

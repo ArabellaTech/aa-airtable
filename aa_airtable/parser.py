@@ -41,9 +41,14 @@ class AbstractParser(object):
         for item in items:
             fields = self.get_extra_fields(item)
             obj = self.parse_item(item, fields)
-            items_ids.append(obj.id)
+            if obj:
+                items_ids.append(obj.id)
 
         self.remove_obsolete(items_ids)
+        self.post_process()
+
+    def post_process(self):
+        pass
 
     def get_extra_fields(self, item):
         return {}
